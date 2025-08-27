@@ -1,0 +1,14 @@
+api_fqdn: "api-yourfqdn.paloaltonetworks.com"   
+api_key_id: "XDR_API_KEY_ID"
+api_key: "XDR_API_KEY"
+verify_ssl: true
+
+mode: "incidents"             
+since: "2025-08-01T00:00:00Z" 
+page_size: 200
+
+logstash:
+  host: "127.0.0.1"
+  port: 5044
+  ssl: false
+  ssl_ca: ""
