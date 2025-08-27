@@ -1,14 +1,19 @@
-api_fqdn: "api-yourfqdn.paloaltonetworks.com"   
+# config/cortex_xdr.yaml
+api_fqdn: "api-yourtenant.paloaltonetworks.com"   # no https://
 api_key_id: "XDR_API_KEY_ID"
 api_key: "XDR_API_KEY"
 verify_ssl: true
 
-mode: "incidents"             
-since: "2025-08-01T00:00:00Z" 
+mode: "incidents"             # incidents | alerts | both
+since: "2025-08-01T00:00:00Z" # initial ISO8601 time to start pulling from
 page_size: 200
 
 logstash:
   host: "127.0.0.1"
   port: 5044
   ssl: false
-  ssl_ca: ""
+  ssl_ca: ""                  # set when ssl: true
+
+settings:
+  polling_interval: 300       # seconds; if >0 runs continuously, else one-shot
+  max_events_per_poll: 1000   # soft cap per cycle
