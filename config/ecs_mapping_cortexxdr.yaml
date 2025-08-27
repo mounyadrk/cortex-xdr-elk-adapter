@@ -1,0 +1,16 @@
+mappings:
+  "@timestamp": "creation_time"         # ms → ISO
+  "event.module": "panw"
+  "event.dataset": "panw.cortex_xdr.incident"
+  "event.kind": "alert"
+  "event.severity": "severity"
+  "event.reason": "description"
+  "event.id": "incident_id"
+  "rule.name": "incident_name"
+  "rule.id": "incident_id"
+  "tags": "tags"
+  "url.full": "xdr_url"
+  "host.name[]": "hosts"
+  "user.name[]": "users"
+  "panw.cortex_xdr.alert_count": "alert_count"
+  "panw.cortex_xdr.raw.severity": "severity"
