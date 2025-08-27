@@ -1,13 +1,28 @@
-# cortex-xdr-elk-adapter
 # Cortex XDR → ECS → Logstash
-Fetch incidents/alerts from Cortex XDR REST API, map to ECS, and ship to Logstash.
 
-## Run
+Collect **alerts/incidents from Palo Alto Cortex XDR**, map them to the **Elastic Common Schema (ECS)**, and ship to **Logstash** for ingestion into **Elasticsearch/Kibana**.
+
+---
+
+## Features
+- **Automated Collection** – Pulls incidents and/or alerts from the Cortex XDR **REST API**
+- **ECS Normalization** – Transforms raw fields to **ECS** for easy search & dashboards
+- **Secure Delivery** – Optional **SSL/TLS** when sending to Logstash
+- **Config-Driven** – **YAML** configuration & mapping files
+- **Resilient** – Supports a `since` cursor to avoid duplicates/gaps
+
+---
+
+## Prerequisites
+- **Python 3.8+**
+- **Cortex XDR** tenant with **API Key** and **API Key ID**
+- **Logstash** (TCP input with `json_lines` codec)
+- (Optional) **Elasticsearch/Kibana** reachable from Logstash
+
+---
+
+## Quick Start
+
+### 1) Install dependencies
 ```bash
 pip install -r requirements.txt
-python -m src.adapters.cortex_xdr
-```bash
-git clone https://github.com/mounyadrk/cortex-xdr-elk-adapter.git
-cd cortex-xdr-elk-adapter
-pip3 install -r requirements.txt
-python3 -m src.adapters.cortex_xdr
