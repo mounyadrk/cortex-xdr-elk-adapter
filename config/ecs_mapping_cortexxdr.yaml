@@ -1,16 +1,44 @@
 mappings:
-  "@timestamp": "creation_time"         # ms → ISO
-  "event.module": "panw"
-  "event.dataset": "panw.cortex_xdr.incident"
-  "event.kind": "alert"
-  "event.severity": "severity"
-  "event.reason": "description"
-  "event.id": "incident_id"
-  "rule.name": "incident_name"
-  "rule.id": "incident_id"
-  "tags": "tags"
-  "url.full": "xdr_url"
-  "host.name[]": "hosts"
-  "user.name[]": "users"
-  "panw.cortex_xdr.alert_count": "alert_count"
-  "panw.cortex_xdr.raw.severity": "severity"
+  # --- Core ECS ---
+  "@timestamp": "Time"                # parseable time string (ISO) or epoch ms
+  "event.id": "EventID"
+  "event.code": "EventCode"
+  "event.action": "EventType"         # prefer EventType for ECS action
+  "event.outcome": "Result"
+  "event.severity": "Severity"        # will be normalized to ECS numeric (see code)
+  "message": "Message"
+
+  # --- Host / Target ---
+  "host.ip[]": "target.mResolvedAddress.mAddress"
+  "host.name": "DeviceName"
+  "host.hostname": "audits.0.account.account.mTarget.mResolvedAddress.mFqdn"
+  "target.ip": "audits.0.account.account.mTarget.mResolvedAddress.mAddress"
+  "target.address": "audits.0.target.mOriginalAddress"
+
+  # --- Users / Source ---
+  "user.name": "SourceUserName"
+  "user.target.name": "TargetUserName"
+  "source.ip[]": "SourceIP"
+  "source.address": "SourceAddress"
+
+  # --- Observer / Agent / Log ---
+  "observer.version": "Version"
+  "observer.hostname": "Component"
+  "elastic_agent.id": "ElasticAgentID"
+  "elastic_agent.version": "ElasticAgentVersion"
+  "elastic_agent.snapshot": "ElasticAgentSnapshot"
+  "log.syslog.priority": "LogPriority"
+  "log.source.address": "LogSourceAddress"
+
+  "cyberark.safe": "Safe"
+  "cyberarkpas.audit.action": "Action"                   # original vendor action
+  "cyberarkpas.audit.desc": "Description"
+  "cyberarkpas.audit.issuer": "UserName"
+  "cyberarkpas.audit.message": "Message"
+  "cyberarkpas.audit.severity": "Severity"               # raw vendor severity (string)
+  "cyberarkpas.audit.station": "SourceMachine"
+  "cyberarkpas.audit.psm_command": "audits.0.psmCommand"
+  "cyberarkpas.audit.account_as_str": "audits.0.account.accountAsStr"
+  "user.name.vault": "audits.0.vaultUser"
+
+ 
