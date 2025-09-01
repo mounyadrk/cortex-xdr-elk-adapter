@@ -1,0 +1,16 @@
+cortex:
+  url: "https://api-your-xdr-instance.xdr.us.paloaltonetworks.com"
+  api_key: "YOUR_API_KEY"
+  api_key_id: "YOUR_API_KEY_ID"
+
+settings:
+  mode: both
+  initial_lookback_hours: 1
+  max_results: 200
+  polling_interval: 60  # seconds
+
+logstash:
+  host: "localhost"
+  port: 5044
+  use_ssl: false
+  ssl_verify: false

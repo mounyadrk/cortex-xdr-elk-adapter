@@ -1,0 +1,38 @@
+[
+  {
+    "alert_id": "12345",
+    "name": "Suspicious PowerShell Execution",
+    "creation_time": 1696000000000,
+    "severity": "High",
+    "category": "Execution",
+    "source_ip": "192.168.1.10",
+    "user_name": "jdoe",
+    "host_name": "WIN-01",
+    "description": "PowerShell command executed from unusual location",
+    "rule_name": "Suspicious_PS_Command"
+  },
+  {
+    "alert_id": "12346",
+    "name": "Malware Detected",
+    "creation_time": 1696000100000,
+    "severity": "Critical",
+    "category": "File",
+    "source_ip": "10.0.0.15",
+    "user_name": "asmith",
+    "host_name": "WIN-02",
+    "description": "Detected malware file on system",
+    "rule_name": "Malware_File"
+  },
+  {
+    "alert_id": "12347",
+    "name": "Suspicious RDP Login",
+    "creation_time": 1696000200000,
+    "severity": "Medium",
+    "category": "Network",
+    "source_ip": "172.16.0.20",
+    "user_name": "bwhite",
+    "host_name": "WIN-03",
+    "description": "Unexpected RDP login from external IP",
+    "rule_name": "RDP_Login"
+  }
+]
